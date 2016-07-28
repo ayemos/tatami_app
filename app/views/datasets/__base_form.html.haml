@@ -1,0 +1,8 @@
+%form
+  .form-group
+    %label
+      Host Type
+    %select.form-control#host-type-select
+      - Dataset.host_types.each do |host_type_key, _|
+        %option
+          = host_type_key
