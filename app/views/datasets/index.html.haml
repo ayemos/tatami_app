@@ -14,4 +14,5 @@
       .col-lg-6.col-md-12
         .panel.panel-default
           .panel-body
-            = dataset.name
+            .row
+              = render "#{dataset.host_type}_dataset_panel", dataset: dataset

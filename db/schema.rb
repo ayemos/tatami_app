@@ -15,8 +15,10 @@ ActiveRecord::Schema.define(version: 20160728043256) do
   create_table "datasets", force: :cascade do |t|
     t.string   "name"
     t.integer  "host_type",   limit: 1, default: 0, null: false
+    t.string   "description"
     t.string   "bucket_name"
     t.string   "prefix"
+    t.integer  "data_type",             default: 0, null: false
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.index ["name"], name: "index_datasets_on_name", unique: true
