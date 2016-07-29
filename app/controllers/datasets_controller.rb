@@ -11,6 +11,7 @@ class DatasetsController < ApplicationController
   # GET /datasets/1.json
   def show
     respond_to do |format|
+      format.html { render :show }
       format.json { render :show, location: @dataset }
     end
   end
@@ -43,7 +44,7 @@ class DatasetsController < ApplicationController
 
     respond_to do |format|
       if @dataset.save
-        format.html { redirect_to @dataset, notice: 'dataset was successfully created.' }
+        format.html { redirect_to datasets_url, notice: 'dataset was successfully created.' }
         format.json { render :show, status: :created, location: @dataset }
       else
         format.html { render :new }
