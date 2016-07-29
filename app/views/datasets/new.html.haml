@@ -7,10 +7,4 @@
 .container
   .row
     .col-lg-12
-      = render '_base_form'
-  .row
-    .col-lg-12
-      = link_to 'Next', datasets_path, class: 'btn btn-lg btn-primary pull-right'
-      = link_to 'Back', datasets_path, class: 'btn btn-lg btn-warning pull-right'
-
-= javascript_include_tag 'host_type_selected'
+      = render 'base_form'

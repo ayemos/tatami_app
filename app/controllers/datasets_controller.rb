@@ -10,11 +10,26 @@ class DatasetsController < ApplicationController
   # GET /datasets/1
   # GET /datasets/1.json
   def show
+    respond_to do |format|
+      format.json { render :show, location: @dataset }
+    end
   end
 
   # GET /datasets/new
   def new
     @dataset = Dataset.new
+  end
+
+  # GET /datasets/host_type_selected
+  def host_type_changed
+    case params['host_type']
+    when 's3'
+      @dataset = S3Dataset.new
+    end
+
+    respond_to do |format|
+      format.js { render :host_type_changed, dataset: @dataset }
+    end
   end
 
   # GET /datasets/1/edit
@@ -63,12 +78,17 @@ class DatasetsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # XXX: Might not be a good solution
     def set_dataset
-      @dataset = Dataset.find(params[:id])
+      @dataset = Dataset.where(name: params[:id]).first || Dataset.find(params[:id])
+    end
+
+    def type
+      params[:type]
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dataset_params
-      params.require(:dataset).permit(:body)
+      params.require(type.underscore.to_sym).permit(:name, :bucket_name, :prefix)
     end
 end

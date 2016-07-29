@@ -8,3 +8,10 @@
         = link_to 'Define new Dataset', new_dataset_path,
           class: 'btn btn-default'
 
+.container
+  .row
+    - @datasets.each do |dataset|
+      .col-lg-6.col-md-12
+        .panel.panel-default
+          .panel-body
+            = dataset.name
