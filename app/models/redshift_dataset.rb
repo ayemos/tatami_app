@@ -1,0 +1,2 @@
+class RedshiftDataset < Dataset
+end
