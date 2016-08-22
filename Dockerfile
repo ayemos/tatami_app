@@ -8,3 +8,4 @@ WORKDIR /rails_app
 ADD Gemfile /rails_app/Gemfile
 ADD Gemfile.lock /rails_app/Gemfile.lock
 RUN bundle install
+

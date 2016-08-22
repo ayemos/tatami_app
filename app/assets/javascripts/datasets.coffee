@@ -14,5 +14,6 @@ $(document).on 'ready' , ->
   $("#host-type-select").change ->
     host_type_changed()
 
-  host_type_changed() # to display a form when accessed
+  $("#host-type-select").on 'load' ,  ->
+    host_type_changed()
 
