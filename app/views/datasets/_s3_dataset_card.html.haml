@@ -1,0 +1,15 @@
+.card
+  .card-img-top
+    = image_tag image_sample_urls_for_dataset(dataset, num_urls=1).first
+  .card-block
+    %h4.card-title.card-link
+      = dataset.name
+    %p.card-text
+      = dataset.description
+  %ul.list-group.list-group-flush
+    %li.list-group-item
+      = "Bucket Name: #{dataset.bucket_name}"
+    %li.list-group-item
+      = "Prefix: #{dataset.prefix}"
+  .card-block
+    = link_to 'Open', s3_dataset_path(dataset), class: 'card-link'

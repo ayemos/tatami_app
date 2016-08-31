@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  get 'datasets/host_type_changed'
-
-  resources :datasets
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :datasets, only: [:index, :create, :show]
+  resources :s3_datasets, controller: :datasets, type: 'S3Dataset', only: [:new, :show]
+  resources :redshift_datasets, controller: :datasets, type: 'RedshiftDataset', only: [:new, :show]
 end

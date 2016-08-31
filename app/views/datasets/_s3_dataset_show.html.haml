@@ -1,0 +1,23 @@
+%h2
+  Meta Datas
+.card
+  .card-block
+    %table
+      %tbody
+        %tr
+          %th
+            Bucket Name:
+          %td
+            = @dataset.bucket_name
+        %tr
+          %th
+            Prefix:
+          %td
+            = @dataset.prefix
+
+%h2
+  Images
+.card-columns
+  - image_sample_urls_for_dataset(@dataset, num_urls=10).each do |url|
+    .card.text-xs-center
+      = image_tag url

@@ -1,10 +1,5 @@
-
-.navbar-header
-  %button.navbar-toggle{"data-target" => "#navbar-main", "data-toggle" => "collapse", :type => "button"}
-    %span.icon-bar
-    %span.icon-bar
-    %span.icon-bar
-#navbar-main.navbar-collapse.collapse
-  %ul.nav.navbar-nav
-    %li
-      = link_to 'Dataset', datasets_path
+%a.navbar-brand{:href => "#"} tatami
+%ul.nav.navbar-nav
+  %li.nav-item
+  %li
+    = link_to 'Dataset', datasets_path, class: 'nav-link'

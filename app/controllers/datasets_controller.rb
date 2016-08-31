@@ -19,18 +19,7 @@ class DatasetsController < ApplicationController
   # GET /datasets/new
   def new
     @dataset = Dataset.new
-  end
-
-  # GET /datasets/host_type_selected
-  def host_type_changed
-    case params['host_type']
-    when 's3'
-      @dataset = S3Dataset.new
-    end
-
-    respond_to do |format|
-      format.js { render :host_type_changed, dataset: @dataset }
-    end
+    @dataset.type = params[:type]
   end
 
   # GET /datasets/1/edit
@@ -90,6 +79,6 @@ class DatasetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dataset_params
-      params.require(type.underscore.to_sym).permit(:name, :bucket_name, :prefix)
+      params.require(:dataset).permit(:name, :description, :bucket_name, :prefix, :type)
     end
 end

@@ -12,21 +12,18 @@
 
 ActiveRecord::Schema.define(version: 20160728043256) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "datasets", force: :cascade do |t|
+    t.string   "type"
     t.string   "name"
-    t.integer  "host_type",   limit: 2, default: 0, null: false
     t.string   "description"
     t.string   "bucket_name"
     t.string   "prefix"
-    t.integer  "data_type",             default: 0, null: false
+    t.integer  "data_type",   default: 0, null: false
     t.string   "table_name"
     t.string   "query"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.index ["name"], name: "index_datasets_on_name", unique: true, using: :btree
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.index ["name"], name: "index_datasets_on_name", unique: true
   end
 
 end

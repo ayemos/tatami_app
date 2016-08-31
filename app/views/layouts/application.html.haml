@@ -2,14 +2,13 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title OshoApp
+    %title tatami
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
   %body
-    .navbar.navbar-default.navbar-fixed-top
-      .container
-        = render 'layouts/topnavbar'
+    %nav.navbar.navbar-fixed-top.navbar-dark.bg-inverse
+      = render 'layouts/topnavbar'
 
-    .wrapper
+    #wrapper.container
       = yield
