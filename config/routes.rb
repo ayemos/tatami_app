@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  resources :datasets, only: [:index, :create, :show]
+  resources :datasets, only: [:index, :create]
   resources :s3_datasets, controller: :datasets, type: 'S3Dataset', only: [:new, :show]
-  resources :redshift_datasets, controller: :datasets, type: 'RedshiftDataset', only: [:new, :show]
 end

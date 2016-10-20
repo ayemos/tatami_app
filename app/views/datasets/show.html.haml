@@ -5,6 +5,15 @@
         = @dataset.name
       %p
         = @dataset.description
+    .col-lg-12
+      %h2
+        Code Snippet
+      %pre
+        %code{class: 'python'}
+          :preserve
+            import tatami
 
+            client = tatami.Client("http://tatami.host")
+            client.load_dataset(#{@dataset.name})
       = render "#{@dataset.type.underscore}_show.html.haml"
 

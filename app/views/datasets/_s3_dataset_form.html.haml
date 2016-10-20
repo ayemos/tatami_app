@@ -3,7 +3,7 @@
     %label.col-md-4.control-label{for: "name"}
       Name (unique)
     = f.text_field :name, class: 'form-control'
-    %label.col-md-4.control-label{for: "name"}
+    %label.col-md-4.control-label{for: "description"}
       Description
     = f.text_area :description, class: 'form-control'
   .form-group#s3_dataset-form
@@ -12,5 +12,8 @@
     %label.col-md-4.control-label{for: "prefix"} Prefix
     = f.text_field :prefix, class: 'form-control'
     = f.hidden_field :type
+  .form-group
+    %label.col-md-4.control-label{for: "data_type"} Data Type
+    = f.select :data_type, S3Dataset.data_types, {}, class: 'form-control'
   .form-group
     = f.submit 'Create', class: 'btn btn-primary'

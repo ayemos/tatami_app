@@ -11,10 +11,6 @@ class CreateDatasets < ActiveRecord::Migration[5.0]
       t.string :prefix
       t.integer :data_type, default: 0, null: false, limi: 1
 
-      # RedshiftDataset
-      t.string :table_name
-      t.string :query
-
       t.timestamps
     end
     add_index :datasets, :name, unique: true
